@@ -34,4 +34,10 @@ jobs:
         docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
         docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
         echo "::set-output name=image::$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG"
+
+    - name: ci for fargate
+      env:
+        SERVICE: testci-service
+      run: |
+        aws ecs update-service --service SERVICE --force-new-deployment
       
