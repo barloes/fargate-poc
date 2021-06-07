@@ -39,5 +39,5 @@ jobs:
       env:
         SERVICE: testci-service
       run: |
-        aws ecs update-service --service SERVICE --force-new-deployment
+        aws ecs update-service --service $SERVICE --force-new-deployment
       
