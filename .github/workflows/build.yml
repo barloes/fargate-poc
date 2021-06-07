@@ -38,6 +38,7 @@ jobs:
     - name: ci for fargate
       env:
         SERVICE: testci-service
+        CLUSTER: ecs-cluster-testci
       run: |
-        aws ecs update-service --service $SERVICE --force-new-deployment
+        aws ecs update-service --cluster $CLUSTER --service $SERVICE --force-new-deployment
       
